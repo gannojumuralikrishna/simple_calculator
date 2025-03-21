@@ -1,0 +1,17 @@
+<div class="calculator">
+    <h2>calculator</h2>
+  
+    <!-- Display area for the input expression and result -->
+    <div class="display">
+      <input type="text" [value]="inputExpression" readonly>
+      <div class="result">{{ result }}</div>
+    </div>
+  
+    <!-- Buttons for numbers and operators -->
+    <div class="buttons">
+      <button *ngFor="let num of numbers" (click)="appendToExpression(num)" class="button number">{{ num }}</button>
+      <button *ngFor="let op of operators" (click)="appendToExpression(op)" class="button operator">{{ op }}</button>
+      <button (click)="clearExpression()" class="button clear">C</button>
+    </div>
+  </div>
+  
