@@ -26,14 +26,14 @@ export class CalculatorComponent {
   evaluateExpression(): void {
     try {
       this.result = this.calculate(this.inputExpression);
-    } catch (error) {
+    } catch {
       this.result = 'Invalid expression';
     }
   }
 
   calculate(expression: string): number {
     // Regular expression to match numbers and operators
-    const tokens = expression.match(/(\d+|\+|\-|\*|\/)/g);
+    const tokens = expression.match(/(\d+|\+|-|\*|\/)/g);
     if (!tokens) throw new Error('Invalid expression');
 
     let currentValue = parseFloat(tokens[0]);
@@ -60,5 +60,4 @@ export class CalculatorComponent {
 
     return currentValue;
   }
-
 }
